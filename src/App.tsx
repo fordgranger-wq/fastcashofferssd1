@@ -28,9 +28,15 @@ export default function App() {
   ];
 
   const featureCards = [
-    ["🏠 Multiple Offers", "Investors compete to purchase your home."],
+    [
+      "🏠 Multiple Offers",
+      "Investors compete to purchase your home, ensuring higher offers.",
+    ],
     ["🛠 As-Is Sale", "No repairs, no cleaning, no seller fees."],
-    ["📦 Flexible Move-Out", "Take what you want and leave the rest behind."],
+    [
+      "📦 Flexible Move-Out",
+      "Love it or leave it. Take what you want and leave the rest behind.",
+    ],
     [
       "💵 Faster Relief",
       "Potential access to funds during escrow for qualified sellers.",
@@ -86,7 +92,7 @@ export default function App() {
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80')",
-            backgroundPosition: "center 20%",
+            backgroundPosition: "center 50%",
           }}
         />
 
@@ -182,19 +188,14 @@ export default function App() {
           </div>
           <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
             <div>
-              <div className="mb-4 inline-block rounded-full border border-[#8dd4cf] bg-white/90 px-4 py-2 text-sm font-semibold text-[#0d4f5c] shadow-sm">
-                Multiple Cash Offers, One Simple Process
-              </div>
-
               <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0f3d47] sm:text-5xl lg:max-w-3xl lg:text-6xl">
                 Get <span className="text-[#f47a00]">Multiple Cash Offers</span>{" "}
                 On Your San Diego Home In 72 Hours
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#27545f]">
-                Compare serious offers from actual investors, not wholesalers,
-                so you can sell as-is, move on your timeline, and protect your
-                equity.
+                Compare serious offers from actual investors, so you can sell
+                as-is, move on your timeline, and protect your equity.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -478,8 +479,8 @@ export default function App() {
                 </h2>
                 <p className="mt-4 max-w-2xl text-lg leading-8 text-[#ddf3f1]">
                   Whether the property is clean, cluttered, inherited,
-                  tenant-occupied, outdated, or distressed, you can start with a
-                  quick conversation and see what the market gives you.
+                  tenant-occupied, outdated, or distressed, start with a quick
+                  conversation and see what the market gives you.
                 </p>
               </div>
 
@@ -491,8 +492,7 @@ export default function App() {
                   Get My Cash Offers
                 </a>
                 <div className="rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-sm leading-6 text-[#ddf3f1]">
-                  San Diego-focused • Multiple offers in 72 hours • Close in
-                  10–60 days
+                  San Diego-focused • Multiple offers • Close in 10–60 days
                 </div>
               </div>
             </div>
