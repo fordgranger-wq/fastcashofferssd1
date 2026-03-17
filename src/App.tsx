@@ -74,7 +74,29 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8f1e1] via-[#f7f5ef] to-[#eef8f7] text-slate-900">
+   <div className="relative min-h-screen overflow-x-hidden text-slate-900">
+     <div className="fixed inset-0 -z-10">
+  {/* Sky gradient */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[#f7efe1] via-[#ffd28a] to-[#b9e6e2]" />
+
+  {/* Sun glow */}
+  <div className="absolute left-1/2 top-[14vh] h-48 w-48 -translate-x-1/2 rounded-full bg-[#f47a00] opacity-80 blur-[2px]" />
+
+  {/* Horizon light */}
+  <div className="absolute inset-x-0 top-[18vh] h-24 bg-gradient-to-b from-white/40 to-transparent" />
+
+  {/* Ocean layer */}
+  <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-t from-[#76cbca] via-[#b7ece9] to-transparent" />
+
+  {/* Soft wave texture */}
+  <div
+    className="absolute inset-x-0 bottom-[10vh] h-20 opacity-30"
+    style={{
+      backgroundImage:
+        "repeating-linear-gradient(to right, transparent 0 120px, rgba(255,255,255,0.25) 120px 180px, transparent 180px 320px)"
+    }}
+  />
+</div>
       <section className="px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex justify-center">
