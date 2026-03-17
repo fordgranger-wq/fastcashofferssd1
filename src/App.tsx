@@ -28,8 +28,8 @@ export default function App() {
   ];
 
   const featureCards = [
-    ["🏠 Multiple Offers", "Investors compete to purchase your home."],
-    ["🛠 As-Is Sale", "No repairs, no cleaning, and no seller fees."],
+    ["🏠 Multiple Offers", "Investors compete to purchase your home, ensuring higher offers."],
+    ["🛠 As-Is Sale", "No repairs, no cleaning, no seller fees."],
     ["📦 Flexible Move-Out", "Take what you want and leave the rest behind."],
     [
       "💵 Faster Relief",
@@ -237,7 +237,7 @@ export default function App() {
               </div>
 
               <p className="mt-4 text-sm text-[#3d6770]">
-                No open houses. No fees. No obligation. Just a straightforward
+               No fees. No obligation. Just a straightforward
                 cash offer option for homeowners who want clarity.
               </p>
             </div>
