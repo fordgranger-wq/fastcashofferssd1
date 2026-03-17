@@ -28,7 +28,7 @@ export default function App() {
   ];
 
   const featureCards = [
-    ["🏠 Multiple Offers", "Investors compete to purchase your home, ensuring higher offers."],
+    ["🏠 Multiple Offers", "Investors compete to purchase your home."],
     ["🛠 As-Is Sale", "No repairs, no cleaning, no seller fees."],
     ["📦 Flexible Move-Out", "Take what you want and leave the rest behind."],
     [
@@ -50,6 +50,10 @@ export default function App() {
     {
       q: "Do I have to accept one of the offers?",
       a: "No. You are not obligated to accept any of the offers you are presented.",
+    },
+    {
+      q: "There are no seller fees?",
+      a: "That is correct. All sales are run through a traditional escrow and the buyers will pay all your closing costs.",
     },
     {
       q: "Do I need to clean or make repairs first?",
@@ -74,53 +78,33 @@ export default function App() {
   ];
 
   return (
- <div className="fixed inset-0 -z-10 pointer-events-none">
+    <div className="relative min-h-screen overflow-x-hidden text-slate-900">
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        {/* Background photo */}
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80')",
+            backgroundPosition: "center 20%",
+          }}
+        />
 
-  {/* SKY */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[#f7efe1] via-[#ffd28a] to-[#b9e6e2]" />
+        {/* Light gradient overlay to match your palette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f7efe1]/95 via-[#ffd28a]/55 via-[#ffd28a]/35 to-[#b9e6e2]/70" />
 
-  {/* SUN */}
-  <div className="absolute left-1/2 top-[14vh] h-48 w-48 -translate-x-1/2 rounded-full bg-[#f47a00] opacity-80 blur-[2px]" />
+        {/* Soft white haze for readability */}
+        <div className="absolute inset-0 bg-white/18" />
 
-  {/* LIGHT GLOW */}
-  <div className="absolute inset-x-0 top-[18vh] h-24 bg-gradient-to-b from-white/40 to-transparent" />
+        {/* Sun glow */}
+        <div className="absolute inset-x-0 top-[10vh] h-[26vh] bg-gradient-to-b from-[#f47a00]/8 to-transparent" />
 
-  {/* SKYLINE */}
-  <div className="absolute inset-x-0 bottom-[22vh] h-32">
+        {/* Horizon glow */}
+        <div className="absolute inset-x-0 top-[28vh] h-32 bg-gradient-to-b from-white/28 to-transparent" />
 
-    {/* FAR HILLS */}
-    <div className="absolute bottom-0 w-full h-24 bg-[#b7ece9] opacity-60 [clip-path:polygon(0%_100%,8%_60%,15%_70%,25%_50%,35%_65%,45%_45%,55%_60%,65%_40%,75%_55%,85%_45%,100%_100%)]" />
-
-    {/* CITY */}
-    <div className="absolute bottom-0 w-full h-28 bg-[#0d4f5c] opacity-90 [clip-path:polygon(0%_100%,5%_65%,10%_70%,15%_40%,20%_60%,25%_30%,30%_55%,35%_35%,40%_60%,45%_25%,50%_50%,55%_30%,60%_55%,65%_35%,70%_65%,75%_45%,80%_70%,85%_55%,90%_65%,95%_60%,100%_100%)]" />
-
-    {/* PALM LEFT */}
-    <div className="absolute bottom-0 left-[8%]">
-      <div className="h-20 w-[2px] bg-[#0d4f5c]" />
-      <div className="absolute bottom-[18px] left-[-6px] w-6 h-6 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
-    </div>
-
-    {/* PALM RIGHT */}
-    <div className="absolute bottom-0 right-[10%]">
-      <div className="h-24 w-[2px] bg-[#0d4f5c]" />
-      <div className="absolute bottom-[20px] left-[-6px] w-7 h-7 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
-    </div>
-
-  </div>
-
-  {/* OCEAN */}
-  <div className="absolute inset-x-0 bottom-0 h-[35vh] bg-gradient-to-t from-[#76cbca] via-[#b7ece9] to-transparent" />
-
-  {/* WATER LINES */}
-  <div
-    className="absolute inset-x-0 bottom-[8vh] h-16 opacity-25"
-    style={{
-      backgroundImage:
-        "repeating-linear-gradient(to right, transparent 0 120px, rgba(255,255,255,0.25) 120px 180px, transparent 180px 320px)"
-    }}
-  />
-
-</div>
+        {/* Bottom ocean tint */}
+        <div className="absolute inset-x-0 bottom-0 h-[36vh] bg-gradient-to-t from-[#76cbca]/42 via-[#b7ece9]/16 to-transparent" />
+      </div>
       <section className="px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex justify-center">
@@ -237,8 +221,8 @@ export default function App() {
               </div>
 
               <p className="mt-4 text-sm text-[#3d6770]">
-               No fees. No obligation. Just a straightforward
-                cash offer option for homeowners who want clarity.
+                No fees. No obligation. Just a straightforward cash offer option
+                for homeowners who want clarity.
               </p>
             </div>
 
