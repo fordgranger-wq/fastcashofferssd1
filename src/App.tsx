@@ -74,8 +74,7 @@ export default function App() {
   ];
 
   return (
-   <div className="relative min-h-screen overflow-x-hidden text-slate-900">
-    <div className="fixed inset-0 -z-10">
+ <div className="fixed inset-0 -z-10 pointer-events-none">
 
   {/* SKY */}
   <div className="absolute inset-0 bg-gradient-to-b from-[#f7efe1] via-[#ffd28a] to-[#b9e6e2]" />
@@ -86,22 +85,28 @@ export default function App() {
   {/* LIGHT GLOW */}
   <div className="absolute inset-x-0 top-[18vh] h-24 bg-gradient-to-b from-white/40 to-transparent" />
 
-  {/* DISTANT SKYLINE (soft teal) */}
-  <div className="absolute bottom-[22vh] left-0 right-0 h-24 opacity-40">
-    <div className="h-full w-full bg-[#b9e6e2] [clip-path:polygon(0%_100%,5%_60%,10%_70%,15%_50%,20%_65%,25%_45%,30%_60%,35%_40%,40%_55%,45%_35%,50%_50%,55%_30%,60%_55%,65%_40%,70%_60%,75%_45%,80%_70%,85%_55%,90%_65%,95%_60%,100%_100%)]" />
+  {/* SKYLINE */}
+  <div className="absolute inset-x-0 bottom-[22vh] h-32">
+
+    {/* FAR HILLS */}
+    <div className="absolute bottom-0 w-full h-24 bg-[#b7ece9] opacity-60 [clip-path:polygon(0%_100%,8%_60%,15%_70%,25%_50%,35%_65%,45%_45%,55%_60%,65%_40%,75%_55%,85%_45%,100%_100%)]" />
+
+    {/* CITY */}
+    <div className="absolute bottom-0 w-full h-28 bg-[#0d4f5c] opacity-90 [clip-path:polygon(0%_100%,5%_65%,10%_70%,15%_40%,20%_60%,25%_30%,30%_55%,35%_35%,40%_60%,45%_25%,50%_50%,55%_30%,60%_55%,65%_35%,70%_65%,75%_45%,80%_70%,85%_55%,90%_65%,95%_60%,100%_100%)]" />
+
+    {/* PALM LEFT */}
+    <div className="absolute bottom-0 left-[8%]">
+      <div className="h-20 w-[2px] bg-[#0d4f5c]" />
+      <div className="absolute bottom-[18px] left-[-6px] w-6 h-6 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
+    </div>
+
+    {/* PALM RIGHT */}
+    <div className="absolute bottom-0 right-[10%]">
+      <div className="h-24 w-[2px] bg-[#0d4f5c]" />
+      <div className="absolute bottom-[20px] left-[-6px] w-7 h-7 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
+    </div>
+
   </div>
-
-  {/* MAIN SKYLINE (darker, sharper) */}
-  <div className="absolute bottom-[18vh] left-0 right-0 h-28 opacity-70">
-    <div className="h-full w-full bg-[#0d4f5c] [clip-path:polygon(0%_100%,4%_50%,8%_65%,12%_35%,16%_55%,20%_25%,24%_60%,28%_30%,32%_50%,36%_20%,40%_45%,44%_25%,48%_60%,52%_30%,56%_50%,60%_20%,64%_45%,68%_25%,72%_55%,76%_35%,80%_65%,84%_45%,88%_60%,92%_50%,96%_65%,100%_100%)]" />
-  </div>
-
-  {/* PALM TREES (simple vertical + leaf) */}
-  <div className="absolute bottom-[18vh] left-[10%] h-20 w-[2px] bg-[#0d4f5c]" />
-  <div className="absolute bottom-[18vh] left-[10%] h-6 w-6 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
-
-  <div className="absolute bottom-[18vh] right-[12%] h-24 w-[2px] bg-[#0d4f5c]" />
-  <div className="absolute bottom-[18vh] right-[12%] h-7 w-7 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
 
   {/* OCEAN */}
   <div className="absolute inset-x-0 bottom-0 h-[35vh] bg-gradient-to-t from-[#76cbca] via-[#b7ece9] to-transparent" />
@@ -114,6 +119,7 @@ export default function App() {
         "repeating-linear-gradient(to right, transparent 0 120px, rgba(255,255,255,0.25) 120px 180px, transparent 180px 320px)"
     }}
   />
+
 </div>
       <section className="px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
