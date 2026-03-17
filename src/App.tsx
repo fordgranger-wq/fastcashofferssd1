@@ -75,22 +75,40 @@ export default function App() {
 
   return (
    <div className="relative min-h-screen overflow-x-hidden text-slate-900">
-     <div className="fixed inset-0 -z-10">
-  {/* Sky gradient */}
+    <div className="fixed inset-0 -z-10">
+
+  {/* SKY */}
   <div className="absolute inset-0 bg-gradient-to-b from-[#f7efe1] via-[#ffd28a] to-[#b9e6e2]" />
 
-  {/* Sun glow */}
+  {/* SUN */}
   <div className="absolute left-1/2 top-[14vh] h-48 w-48 -translate-x-1/2 rounded-full bg-[#f47a00] opacity-80 blur-[2px]" />
 
-  {/* Horizon light */}
+  {/* LIGHT GLOW */}
   <div className="absolute inset-x-0 top-[18vh] h-24 bg-gradient-to-b from-white/40 to-transparent" />
 
-  {/* Ocean layer */}
-  <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-t from-[#76cbca] via-[#b7ece9] to-transparent" />
+  {/* DISTANT SKYLINE (soft teal) */}
+  <div className="absolute bottom-[22vh] left-0 right-0 h-24 opacity-40">
+    <div className="h-full w-full bg-[#b9e6e2] [clip-path:polygon(0%_100%,5%_60%,10%_70%,15%_50%,20%_65%,25%_45%,30%_60%,35%_40%,40%_55%,45%_35%,50%_50%,55%_30%,60%_55%,65%_40%,70%_60%,75%_45%,80%_70%,85%_55%,90%_65%,95%_60%,100%_100%)]" />
+  </div>
 
-  {/* Soft wave texture */}
+  {/* MAIN SKYLINE (darker, sharper) */}
+  <div className="absolute bottom-[18vh] left-0 right-0 h-28 opacity-70">
+    <div className="h-full w-full bg-[#0d4f5c] [clip-path:polygon(0%_100%,4%_50%,8%_65%,12%_35%,16%_55%,20%_25%,24%_60%,28%_30%,32%_50%,36%_20%,40%_45%,44%_25%,48%_60%,52%_30%,56%_50%,60%_20%,64%_45%,68%_25%,72%_55%,76%_35%,80%_65%,84%_45%,88%_60%,92%_50%,96%_65%,100%_100%)]" />
+  </div>
+
+  {/* PALM TREES (simple vertical + leaf) */}
+  <div className="absolute bottom-[18vh] left-[10%] h-20 w-[2px] bg-[#0d4f5c]" />
+  <div className="absolute bottom-[18vh] left-[10%] h-6 w-6 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
+
+  <div className="absolute bottom-[18vh] right-[12%] h-24 w-[2px] bg-[#0d4f5c]" />
+  <div className="absolute bottom-[18vh] right-[12%] h-7 w-7 border-[3px] border-[#0d4f5c] border-b-transparent border-r-transparent rotate-45" />
+
+  {/* OCEAN */}
+  <div className="absolute inset-x-0 bottom-0 h-[35vh] bg-gradient-to-t from-[#76cbca] via-[#b7ece9] to-transparent" />
+
+  {/* WATER LINES */}
   <div
-    className="absolute inset-x-0 bottom-[10vh] h-20 opacity-30"
+    className="absolute inset-x-0 bottom-[8vh] h-16 opacity-25"
     style={{
       backgroundImage:
         "repeating-linear-gradient(to right, transparent 0 120px, rgba(255,255,255,0.25) 120px 180px, transparent 180px 320px)"
