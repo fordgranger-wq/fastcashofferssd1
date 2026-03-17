@@ -29,7 +29,7 @@ export default function App() {
 
   const featureCards = [
     ["🏠 Multiple Offers", "Investors compete to purchase your home."],
-    ["🛠 As-Is Sale", "No repairs, no cleaning, and no staging required."],
+    ["🛠 As-Is Sale", "No repairs, no cleaning, and no seller fees."],
     ["📦 Flexible Move-Out", "Take what you want and leave the rest behind."],
     [
       "💵 Faster Relief",
