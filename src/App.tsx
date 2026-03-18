@@ -1,464 +1,364 @@
-export default function App() {
-  const benefits = [
-    "Get multiple cash offers in 72 hours",
-    "Sell directly to local investors, not wholesalers",
-    "No repairs, No Seller Fees, No Cleaning",
-    "Love it or Leave it. Take what you want, leave the rest behind",
-    "You may be eligible for a $10,000 cash advance during escrow",
-    "Close in as little as 10 days or choose up to 60 days",
+import { useState } from "react";
+
+export default function FastCashOffersSDPreview() {
+  const [propertyAddress, setPropertyAddress] = useState("");
+  const [showStepTwo, setShowStepTwo] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [situation, setSituation] = useState("Need to sell quickly");
+
+  const testimonials = [
+    {
+      name: "Lori F.",
+      quote:
+        "John helped sell my mom’s home in poor condition and got her far more than expected. Communication was excellent the entire time.",
+    },
+    {
+      name: "Jermaine S.",
+      quote:
+        "The selling process was seamless and we knew we were in good hands. John's understanding of the emotions and attachment to the family home served to be respectful to our family elders, ensuring they were comfortable, not rushed and taken care of.",
+    },
+    {
+      name: "Thomas V.",
+      quote:
+        "John is outstanding! Very professional, adaptive, and exceedingly helpful. When we were in a bind, he was there to quickly get our house sold. He was a pleasure to deal with the entire time.",
+    },
+  ];
+
+  const situations = [
+    "Facing foreclosure",
+    "Inherited a property",
+    "Tired landlord",
+    "Major repairs needed",
+    "Divorce or life transition",
+    "Just want a simple sale",
+  ];
+
+  const reasons = [
+    "Multiple local offers - not just one low-ball offer",
+    "Sell as-is with no repairs, cleanings, or showings",
+    "Transparent process with no hidden fees",
+    "Local San Diego-focused approach",
+    "Fast, straightforward communication",
+    "No-pressure conversations and no obligation",
   ];
 
   const steps = [
     {
-      title: "Tell Us About The Property",
-      text: "Share the address and a few details. No showings, no open houses, and no pressure.",
+      title: "Tell Us About Your Property",
+      body: "Start with the address so we know what property you want to discuss.",
     },
     {
-      title: "We Bring You Multiple Offers",
-      text: "We shop your property to real investors so you can compare serious cash offers instead of guessing at one low number from a wholesaler who simply sells the contract for a profit.",
+      title: "Review Real Cash Offers",
+      body: "We help you compare serious local buyer interest without the usual hassle.",
     },
     {
-      title: "Choose The Best Fit",
-      text: "Let investors compete for your home on a timeline that works for you, whether you need speed, flexibility, or both.",
+      title: "Choose What Works for You",
+      body: "Pick the timing and option that fits your situation. No obligation.",
     },
-    {
-      title: "Close On Your Terms",
-      text: "Close in as little as 10 days or as late as 60. In some cases, you may also qualify for an advance during escrow.",
-    },
-  ];
-
-  const featureCards = [
-    [
-      "🏠 Multiple Offers",
-      "Investors compete to purchase your home, ensuring higher offers.",
-    ],
-    ["🛠 As-Is Sale", "No repairs, no cleaning, no seller fees."],
-    [
-      "📦 Flexible Move-Out",
-      "Love it or leave it. Take what you want and leave the rest behind.",
-    ],
-    [
-      "💵 Faster Relief",
-      "Potential access to funds during escrow for qualified sellers.",
-    ],
-  ];
-
-  const sellerSituations = [
-    "Inherited house or probate-related sale",
-    "Tired of dealing with tenants",
-    "House needs some love before listing",
-    "Relocating and need speed",
-    "Need flexibility on timing or move-out",
-    "Want to avoid wholesalers and compare real buyers",
   ];
 
   const faqs = [
     {
-      q: "Do I have to accept one of the offers?",
-      a: "No. You are not obligated to accept any of the offers you are presented.",
+      question: "Are these real offers or just estimates?",
+      answer:
+        "These are real offers from local buyers. You can review them and decide what works best for you with no obligation.",
     },
     {
-      q: "There are no seller fees?",
-      a: "That is correct. All sales are run through a traditional escrow and the buyers will pay all your closing costs.",
+      question: "Do I have to accept an offer?",
+      answer:
+        "No. This is simply a way to explore your options. You can review offers and decide what makes sense for you.",
     },
     {
-      q: "Do I need to clean or make repairs first?",
-      a: "No. We work with sellers who want a simple sale without fixing the property up first.",
+      question: "Are there any fees or commissions?",
+      answer:
+        "No commissions or hidden fees. The goal is to give you straightforward options without the traditional selling costs.",
     },
     {
-      q: "Can I leave unwanted items behind?",
-      a: "Yes. Take what you want and leave the rest behind. We'll take care of clean out.",
+      question: "Do I need to make repairs or clean the property?",
+      answer:
+        "No. Your home will sell as-is. You do not need to spend time or money fixing or cleaning anything.",
     },
     {
-      q: "How is this different from selling to a wholesaler?",
-      a: "Wholesalers sell the contract to investors for a profit, we connect you with actual buyers who will purchase and fix up your home, meaning more money in your pocket.",
+      question: "How quickly can I sell?",
+      answer:
+        "Some sales can close in as little as 7–10 days, depending on the timeline you choose.",
     },
     {
-      q: "How fast can I close?",
-      a: "Close in as little as 10 days, or take your time and close closer to 60 days.",
-    },
-    {
-      q: "What is the $10,000 advance?",
-      a: "Some sellers may qualify for an advance during escrow to help with moving costs, bills, or transition expenses. Terms depend on the transaction.",
+      question: "Who am I actually working with?",
+      answer:
+        "You will receive offers from local San Diego buyers, and real estate professionals will walk you through your options clearly and honestly.",
     },
   ];
 
+  const handleStepOneSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!propertyAddress.trim()) {
+      alert("Please enter the property address.");
+      return;
+    }
+
+    setShowStepTwo(true);
+  };
+
+  const handleStepTwoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = {
+      propertyAddress,
+      fullName,
+      phone,
+      email,
+      situation,
+    };
+
+    console.log("Submitted lead:", formData);
+
+    alert("Step 2 is working. Next, we’ll connect this to Google Sheets.");
+
+    setShowStepTwo(false);
+  };
+
+  const closeModal = () => {
+    setShowStepTwo(false);
+  };
+
   return (
-    <div className="relative min-h-screen overflow-x-hidden text-slate-900">
-      <div className="fixed inset-0 -z-10 pointer-events-none">
-        {/* Background photo */}
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80')",
-            backgroundPosition: "center 50%",
-          }}
-        />
+    <div className="min-h-screen bg-slate-950 text-white">
+      <section
+        className="relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(15,23,42,0.35) 0%, rgba(15,23,42,0.58) 26%, rgba(194, 88, 28, 0.28) 62%, rgba(15,23,42,0.82) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-slate-950/40" />
 
-        {/* Light gradient overlay to match your palette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f7efe1]/95 via-[#ffd28a]/55 via-[#ffd28a]/35 to-[#b9e6e2]/70" />
-
-        {/* Soft white haze for readability */}
-        <div className="absolute inset-0 bg-white/18" />
-
-        {/* Sun glow */}
-        <div className="absolute inset-x-0 top-[10vh] h-[26vh] bg-gradient-to-b from-[#f47a00]/8 to-transparent" />
-
-        {/* Horizon glow */}
-        <div className="absolute inset-x-0 top-[28vh] h-32 bg-gradient-to-b from-white/28 to-transparent" />
-
-        {/* Bottom ocean tint */}
-        <div className="absolute inset-x-0 bottom-0 h-[36vh] bg-gradient-to-t from-[#76cbca]/42 via-[#b7ece9]/16 to-transparent" />
-      </div>
-      <section className="px-6 py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex justify-center">
-            <div className="flex w-full max-w-6xl items-center justify-between rounded-full border border-[#cfe8e5] bg-[#f4f7f6] px-6 py-3 text-sm font-medium text-[#355e63] shadow-sm">
-              {/* LEFT */}
-              <div className="flex items-center gap-2 whitespace-nowrap">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.8}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 10l9-7 9 7v10a1 1 0 01-1 1h-6v-6H10v6H4a1 1 0 01-1-1V10z"
-                  />
-                </svg>
-                <span>Serving homeowners across San Diego County</span>
+        <div className="relative mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="max-w-3xl">
+              <div className="mb-5 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur-sm">
+                Local San Diego Home Selling Options
               </div>
 
-              <div className="flex items-center gap-2 whitespace-nowrap">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.8}
-                >
-                  <circle cx="6.5" cy="8" r="2.2" />
-                  <circle cx="12" cy="6.5" r="2.4" />
-                  <circle cx="17.5" cy="8" r="2.2" />
-
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 19c0-2 2.5-3.5 4.5-3.5"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M7.5 19c0-2.5 2.5-4 4.5-4s4.5 1.5 4.5 4"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16.5 15.5c2 0 4.5 1.5 4.5 3.5"
-                  />
-                </svg>
-                <span>Local investors</span>
-              </div>
-
-              {/* RIGHT */}
-              <div className="flex items-center gap-2 whitespace-nowrap">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.8}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Fast closings • No hidden fees</span>
-              </div>
-            </div>
-          </div>
-          <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-            <div>
-              <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0f3d47] sm:text-5xl lg:max-w-3xl lg:text-6xl">
-                Get <span className="text-[#f47a00]">Multiple Cash Offers</span>{" "}
-                On Your San Diego Home In 72 Hours
+              <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+                Get Multiple{" "}
+                <span className="text-orange-400">Cash Offers</span> for Your
+                San Diego Home
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#27545f]">
-                Compare serious offers from actual investors, so you can sell
-                as-is, move on your timeline, and protect your equity.
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-100 md:text-xl">
+                Sell as-is, skip repairs and showings, and compare real local
+                cash offers that meet your timeline.
               </p>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {benefits.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/60 bg-white/95 px-4 py-3 text-sm font-medium text-[#0d4f5c] shadow-[0_10px_25px_rgba(13,79,92,0.06)]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#offer-form"
-                  className="inline-block rounded-2xl bg-[#f47a00] px-8 py-4 text-base font-semibold text-white shadow-[0_14px_30px_rgba(244,122,0,0.28)] transition hover:-translate-y-0.5 hover:opacity-95"
+                  className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-7 py-4 text-base font-semibold text-white shadow-xl shadow-orange-950/30 transition hover:scale-[1.02] hover:bg-orange-400"
                 >
                   Get My Cash Offers
                 </a>
-                <p className="mt-3 text-sm font-medium text-[#3d6770]">
-                  It only takes 30 seconds
-                </p>
+                <a
+                  href="tel:6197962021"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/25 bg-black/20 px-7 py-4 text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
+                >
+                  Call Now: (619) 796-2021
+                </a>
               </div>
 
-              <p className="mt-4 text-sm text-[#3d6770]">
-                No fees. No obligation. Just a straightforward cash offer option
-                for homeowners who want clarity.
-              </p>
+              <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-100">
+                <span className="rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-sm">
+                  No fees
+                </span>
+                <span className="rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-sm">
+                  No pressure
+                </span>
+                <span className="rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-sm">
+                  Close in as little as 7–10 days
+                </span>
+              </div>
+
+              <div className="mt-8 max-w-xl rounded-2xl border border-white/15 bg-black/25 p-5 backdrop-blur-md">
+                <div className="text-sm uppercase tracking-[0.18em] text-orange-300">
+                  Trusted by San Diego homeowners
+                </div>
+                <div className="mt-2 text-lg font-semibold text-yellow-400">
+                  ★★★★★
+                </div>
+                <p className="mt-2 text-slate-100">
+                  “John made the process simple and stress-free. We got clarity
+                  fast and never felt pressured.”
+                </p>
+                <p className="mt-3 text-sm text-slate-300">— Mike R.</p>
+              </div>
             </div>
 
-            <div>
-              <div
-                id="offer-form"
-                className="rounded-[2rem] border border-white/70 bg-white/95 p-6 shadow-[0_18px_50px_rgba(13,79,92,0.12)] lg:p-8"
-              >
-                <div className="mb-4 flex flex-wrap gap-2 text-sm font-medium text-[#0d4f5c]">
-                  <span className="rounded-full bg-[#eef8f7] px-3 py-1">
-                    ✔ No Pressure
-                  </span>
-                  <span className="rounded-full bg-[#eef8f7] px-3 py-1">
-                    ✔ No Obligation
-                  </span>
-                  <span className="rounded-full bg-[#eef8f7] px-3 py-1">
-                    ✔ No Seller Fees
-                  </span>
+            <div id="offer-form" className="mx-auto w-full max-w-md">
+              <div className="rounded-[28px] border border-white/15 bg-white/95 p-6 text-slate-900 shadow-2xl shadow-slate-950/30 md:p-7">
+                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-600">
+                  Get started
                 </div>
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
+                  Get Multiple Cash Offers in 72 hours
+                </h2>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Enter the property address and we’ll get to work on your
+                  offers!
+                </p>
 
-                <div className="mb-6">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0d4f5c]/70">
-                    Request Offers
-                  </p>
-                  <h2 className="mt-2 text-2xl font-bold text-[#0f3d47]">
-                    See What Investors Would Pay For Your Property
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-[#38616a]">
-                    Fill out the short form below and we’ll begin lining up
-                    qualified investor interest.
-                  </p>
-                </div>
-
-                <form className="space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
+                <form className="mt-6 space-y-4" onSubmit={handleStepOneSubmit}>
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                      Property Address
+                    </label>
                     <input
-                      className="rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 outline-none placeholder:text-[#7aa4aa]"
-                      placeholder="First name"
-                    />
-                    <input
-                      className="rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 outline-none placeholder:text-[#7aa4aa]"
-                      placeholder="Last name"
+                      type="text"
+                      value={propertyAddress}
+                      onChange={(e) => setPropertyAddress(e.target.value)}
+                      placeholder="123 Main St, San Diego, CA"
+                      className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
                     />
                   </div>
-
-                  <input
-                    className="w-full rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 outline-none placeholder:text-[#7aa4aa]"
-                    placeholder="Property address"
-                  />
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <input
-                      className="rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 outline-none placeholder:text-[#7aa4aa]"
-                      placeholder="Phone"
-                    />
-                    <input
-                      className="rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 outline-none placeholder:text-[#7aa4aa]"
-                      placeholder="Email"
-                    />
-                  </div>
-
-                  <select className="w-full rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 text-[#5b838a] outline-none">
-                    <option>Property condition</option>
-                    <option>Move-in ready</option>
-                    <option>Needs cosmetic updates</option>
-                    <option>Needs major repairs</option>
-                    <option>Inherited / distressed</option>
-                  </select>
-
-                  <select className="w-full rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 text-[#5b838a] outline-none">
-                    <option>Preferred timeline</option>
-                    <option>As fast as possible</option>
-                    <option>Within 30 days</option>
-                    <option>Within 60 days</option>
-                    <option>Just exploring options</option>
-                  </select>
-
-                  <textarea
-                    className="min-h-[120px] w-full rounded-2xl border border-[#b7e5e1] bg-white px-4 py-3 outline-none placeholder:text-[#7aa4aa]"
-                    placeholder="Tell us anything helpful: tenant situation, repairs, inherited property, leaving items behind, etc."
-                  />
 
                   <button
-                    type="button"
-                    className="w-full rounded-2xl bg-[#f47a00] px-6 py-4 text-base font-semibold text-white shadow-[0_14px_30px_rgba(244,122,0,0.28)] transition hover:-translate-y-0.5 hover:opacity-95"
+                    type="submit"
+                    className="w-full rounded-2xl bg-orange-500 px-5 py-4 text-base font-semibold text-white shadow-lg shadow-orange-950/20 transition hover:bg-orange-400"
                   >
-                    Get My Multiple Cash Offers
+                    Get My Cash Offers
                   </button>
-
-                  <p className="text-xs leading-5 text-[#547880]">
-                    By submitting, you agree to be contacted about your
-                    property. Any advance during escrow is subject to
-                    transaction terms and qualification.
-                  </p>
                 </form>
+
+                <p className="mt-4 text-xs leading-5 text-slate-500">
+                  No obligation. No hidden fees. Just a straightforward
+                  conversation about your options.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 lg:grid-cols-4">
-            {featureCards.map(([title, text]) => (
-              <div
-                key={title}
-                className="rounded-[1.75rem] border border-white/70 bg-white/95 p-6 shadow-[0_10px_24px_rgba(13,79,92,0.06)]"
-              >
-                <h3 className="text-lg font-semibold text-[#0f3d47]">
-                  {title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-[#3f6871]">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0d4f5c] px-6 py-20 text-white">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#b9e6e2]">
-              How It Works
-            </p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              A Simple Way To Sell
-            </h2>
-            <p className="mt-4 text-base font-medium text-[#b9e6e2] sm:text-lg">
-              Here’s exactly how we get you multiple offers without the hassle:
-            </p>
-            <p className="mt-4 text-lg leading-8 text-[#ddf3f1]">
-              Not everyone has the budget or the time to fix up their house to
-              sell traditionally, and sometimes a cash offer is the best option.
-              But why accept a low-ball offer when you can compare multiple cash
-              offers and maximize your equity? Don&apos;t leave money on the
-              table!
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-4">
+      <section className="bg-slate-950 px-6 py-16 md:px-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-6 md:grid-cols-3">
             {steps.map((step, index) => (
               <div
                 key={step.title}
-                className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow"
+                className="rounded-[28px] border border-white/10 bg-white/5 p-7 shadow-lg shadow-black/10 backdrop-blur-sm"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f47a00] text-lg font-bold text-white">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500 text-lg font-bold text-white">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="mt-5 text-xl font-semibold text-white">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-[#ddf3f1]">
-                  {step.text}
-                </p>
+                <p className="mt-3 leading-7 text-slate-300">{step.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[2rem] border border-white/60 bg-white/95 p-8 shadow-[0_16px_40px_rgba(13,79,92,0.08)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0d4f5c]/70">
-              Why Use Fast Cash Offers SD?
-            </p>
-            <h2 className="mt-3 text-3xl font-bold text-[#0f3d47] sm:text-4xl">
-              We&apos;re Not Just Offering Speed. We Are Offering Options. And
-              Peace Of Mind.
-            </h2>
-            <div className="mt-8 space-y-5 text-[#3e676f]">
-              <p className="text-lg leading-8">
-                Most “cash offer” sites feel like a single low-ball offer in
-                disguise. Or they are just selling your info to a bunch of
-                investors and wholesalers who never stop calling.
-              </p>
-              <p className="text-lg leading-8">
-                We are different. We are a single contact to dozens of vetted
-                local investors in San Diego County. And they compete to buy
-                your home.
-              </p>
-              <p className="text-lg leading-8">
-                Whether you have an inherited home you need to sell, a rental
-                property with deferred maintenance, retiring and relocating, or
-                you simply want a clean exit without fixing everything first,
-                this might be a great option.
-              </p>
-              <p className="text-lg leading-8">
-                And if you don&apos;t like any of the offers you receive, you
-                are not obligated to accept any of them.
-              </p>
+      <section className="bg-gradient-to-b from-slate-950 to-slate-900 px-6 py-16 md:px-10">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[30px] border border-white/10 bg-white/5 p-8">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
+              Why homeowners choose us
             </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/65 bg-white/95 p-8 shadow-[0_16px_40px_rgba(13,79,92,0.08)]">
-            <h3 className="text-2xl font-bold text-[#0f3d47]">
-              Ideal Seller Situations
-            </h3>
-            <div className="mt-6 space-y-4">
-              {sellerSituations.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-[#c8ece8] bg-white px-4 py-3 text-sm font-medium text-[#0d4f5c]"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white/40 px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0d4f5c]/70">
-              Frequently Asked Questions
-            </p>
-            <h2 className="mt-3 text-3xl font-bold text-[#0f3d47] sm:text-4xl">
-              Common Questions From San Diego Sellers
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Simple, direct options without the usual hassle
             </h2>
+            <p className="mt-4 max-w-xl leading-8 text-slate-300">
+              This page is designed to help sellers who want clarity, speed, and
+              a straightforward next step.
+            </p>
           </div>
 
-          <div className="mt-12 space-y-4">
-            {faqs.map((item) => (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {reasons.map((reason) => (
               <div
-                key={item.q}
-                className="rounded-[1.75rem] border border-white/70 bg-white/95 p-6 shadow-[0_10px_24px_rgba(13,79,92,0.06)]"
+                key={reason}
+                className="rounded-[24px] border border-white/10 bg-black/20 p-5 text-slate-200"
               >
-                <h3 className="text-lg font-semibold text-[#0f3d47]">
-                  {item.q}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-[#406870]">
-                  {item.a}
+                {reason}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-900 px-6 py-16 md:px-10">
+        <div className="mx-auto max-w-6xl rounded-[32px] border border-orange-400/15 bg-gradient-to-r from-orange-500/10 to-white/5 p-8 md:p-10">
+          <div className="grid items-center gap-6 md:grid-cols-[1fr_auto]">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
+                Common situations
+              </div>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+                We can help if your property situation feels complicated
+              </h2>
+              <p className="mt-4 max-w-3xl leading-8 text-slate-300">
+                Whether you need speed, simplicity, or just a real conversation
+                about options, this process is designed to reduce friction.
+              </p>
+            </div>
+            <a
+              href="#offer-form"
+              className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-6 py-4 font-semibold text-white transition hover:bg-orange-400"
+            >
+              Get My Cash Offers
+            </a>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {situations.map((item) => (
+              <div
+                key={item}
+                className="rounded-[22px] border border-white/10 bg-black/20 px-5 py-4 text-slate-100"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-950 px-6 py-16 md:px-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
+                Reviews
+              </div>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+                What sellers say about working with us
+              </h2>
+            </div>
+            <a
+              href="#offer-form"
+              className="hidden md:inline-flex items-center justify-center rounded-2xl bg-orange-500 px-5 py-3 font-semibold text-white shadow-lg shadow-orange-950/20 transition hover:bg-orange-400"
+            >
+              Get My Cash Offers
+            </a>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {testimonials.map((item) => (
+              <div
+                key={item.name}
+                className="rounded-[28px] border border-white/10 bg-white/5 p-7"
+              >
+                <div className="text-lg font-semibold text-yellow-400">
+                  ★★★★★
+                </div>
+                <p className="mt-4 leading-8 text-slate-300">“{item.quote}”</p>
+                <p className="mt-5 text-sm font-medium text-slate-200">
+                  — {item.name}
                 </p>
               </div>
             ))}
@@ -466,39 +366,164 @@ export default function App() {
         </div>
       </section>
 
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="rounded-[2.25rem] bg-[#0d4f5c] px-8 py-12 text-white shadow-[0_18px_40px_rgba(13,79,92,0.15)] sm:px-12">
-            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#b9e6e2]">
-                  Ready To See Your Options?
-                </p>
-                <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                  Find Out What Real Investors Would Offer For Your House
-                </h2>
-                <p className="mt-4 max-w-2xl text-lg leading-8 text-[#ddf3f1]">
-                  Whether the property is clean, cluttered, inherited,
-                  tenant-occupied, outdated, or distressed, start with a quick
-                  conversation and see what the market gives you.
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <a
-                  href="#offer-form"
-                  className="rounded-2xl bg-[#f47a00] px-6 py-4 text-center text-base font-semibold text-white shadow-[0_14px_30px_rgba(244,122,0,0.28)] transition hover:-translate-y-0.5 hover:opacity-95"
-                >
-                  Get My Cash Offers
-                </a>
-                <div className="rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-sm leading-6 text-[#ddf3f1]">
-                  San Diego-focused • Multiple offers • Close in 10–60 days
-                </div>
-              </div>
+      <section className="bg-slate-900 px-6 py-16 md:px-10">
+        <div className="mx-auto max-w-5xl rounded-[32px] border border-white/10 bg-white/5 p-8 md:p-10">
+          <div className="text-center">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
+              FAQs
             </div>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Common Questions About Selling Your Home for Cash
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl leading-8 text-slate-300">
+              Straight answers to the questions sellers usually have before they
+              take the next step.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4">
+            {faqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="rounded-[24px] border border-white/10 bg-black/20 p-6"
+              >
+                <h3 className="text-lg font-semibold text-orange-300">
+                  {faq.question}
+                </h3>
+                <p className="mt-3 leading-7 text-slate-300">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      <section className="bg-gradient-to-b from-slate-950 to-black px-6 pb-20 pt-12 md:px-10">
+        <div className="mx-auto max-w-5xl rounded-[34px] border border-white/10 bg-white/5 p-8 text-center shadow-2xl shadow-black/20 md:p-12">
+          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
+            Final step
+          </div>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
+            Get Your No-Obligation Cash Offers Today
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-300">
+            Takes less than a minute to get started.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href="#offer-form"
+              className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-7 py-4 text-base font-semibold text-white transition hover:bg-orange-400"
+            >
+              Get My Cash Offers
+            </a>
+            <a
+              href="tel:6197962021"
+              className="inline-flex items-center justify-center rounded-2xl border border-white/15 px-7 py-4 text-base font-semibold text-white transition hover:bg-white/5"
+            >
+              Call (619) 796-2021
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {showStepTwo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+          <div className="relative w-full max-w-lg rounded-[28px] bg-white p-6 text-slate-900 shadow-2xl md:p-8">
+            <button
+              type="button"
+              onClick={closeModal}
+              className="absolute right-4 top-4 rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:bg-slate-100"
+            >
+              Close
+            </button>
+
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-600">
+              Almost done
+            </div>
+            <h3 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
+              Where should we send your offers?
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Property:{" "}
+              <span className="font-semibold text-slate-800">
+                {propertyAddress}
+              </span>
+            </p>
+
+            <form className="mt-6 space-y-4" onSubmit={handleStepTwoSubmit}>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="Your name"
+                  className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Phone
+                </label>
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="(619) 555-1234"
+                  className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  What best describes your situation?
+                </label>
+                <select
+                  value={situation}
+                  onChange={(e) => setSituation(e.target.value)}
+                  className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                >
+                  <option>Need to sell quickly</option>
+                  <option>Inherited property</option>
+                  <option>Repairs needed</option>
+                  <option>Tired landlord</option>
+                  <option>Just exploring options</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full rounded-2xl bg-orange-500 px-5 py-4 text-base font-semibold text-white shadow-lg shadow-orange-950/20 transition hover:bg-orange-400"
+              >
+                Submit My Information
+              </button>
+            </form>
+
+            <p className="mt-4 text-xs leading-5 text-slate-500">
+              No obligation. No hidden fees. Just a straightforward conversation
+              about your options.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
