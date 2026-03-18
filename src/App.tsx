@@ -29,19 +29,19 @@ export default function FastCashOffersSDPreview() {
   const situations = [
     "Facing foreclosure",
     "Inherited a property",
-    "Tired landlord",
+    "Tired Landlord",
     "Major repairs needed",
     "Divorce or life transition",
     "Just want a simple sale",
   ];
 
   const reasons = [
-    "Multiple local offers - not just one low-ball offer",
+    "Multiple local offers — not just one low-ball number",
     "Sell as-is with no repairs, cleanings, or showings",
-    "Transparent process with no hidden fees",
+    "Straightforward process with no surprises",
     "Local San Diego-focused approach",
-    "Fast, straightforward communication",
-    "No-pressure conversations and no obligation",
+    "Fast, clear communication",
+    "No pressure to choose any option",
   ];
 
   const steps = [
@@ -54,8 +54,8 @@ export default function FastCashOffersSDPreview() {
       body: "We help you compare serious local buyer interest without the usual hassle.",
     },
     {
-      title: "Choose What Works for You",
-      body: "Pick the timing and option that fits your situation. No obligation.",
+      title: "Close On Your Timeline",
+      body: "Close in as little as 7-10 days.",
     },
   ];
 
@@ -73,22 +73,27 @@ export default function FastCashOffersSDPreview() {
     {
       question: "Are there any fees or commissions?",
       answer:
-        "No commissions or hidden fees. The goal is to give you straightforward options without the traditional selling costs.",
+        "There are no seller fees. The sale is run through a traditional escrow, and the buyer will pay all your closing costs.",
     },
     {
       question: "Do I need to make repairs or clean the property?",
       answer:
-        "No. Your home will sell as-is. You do not need to spend time or money fixing or cleaning anything.",
+        "No. Your home is sold as-is. Take everything you want, and leave the rest behind",
     },
     {
       question: "How quickly can I sell?",
       answer:
-        "Some sales can close in as little as 7–10 days, depending on the timeline you choose.",
+        "Some sales can close in as little as 7–10 days, depending on your timeline.",
     },
     {
       question: "Who am I actually working with?",
       answer:
         "You will receive offers from local San Diego buyers, and real estate professionals will walk you through your options clearly and honestly.",
+    },
+    {
+      question: "What if my home might sell for more on the open market?",
+      answer:
+        "If that’s the case, we’ll walk you through that option as well. The goal is to help you choose the best path for your situation - not push you into one.",
     },
   ];
 
@@ -145,23 +150,23 @@ export default function FastCashOffersSDPreview() {
                 Local San Diego Home Selling Options
               </div>
 
-              <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
-                Get Multiple{" "}
-                <span className="text-orange-400">Cash Offers</span> for Your
-                San Diego Home
+              <h1 className="max-w-5xl text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+                Get{" "}
+                <span className="text-orange-400">Multiple Cash Offers</span> on
+                Your San Diego Home — Sell As-Is, On Your Timeline
               </h1>
 
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-100 md:text-xl">
-                Sell as-is, skip repairs and showings, and compare real local
-                cash offers that meet your timeline.
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
+                Real cash offers in 72 hours. If a better option exists, we’ll
+                help you see that too.
               </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#offer-form"
                   className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-7 py-4 text-base font-semibold text-white shadow-xl shadow-orange-950/30 transition hover:scale-[1.02] hover:bg-orange-400"
                 >
-                  Get My Cash Offers
+                  Get My Cash Offers Now
                 </a>
                 <a
                   href="tel:6197962021"
@@ -171,19 +176,7 @@ export default function FastCashOffersSDPreview() {
                 </a>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-100">
-                <span className="rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-sm">
-                  No fees
-                </span>
-                <span className="rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-sm">
-                  No pressure
-                </span>
-                <span className="rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-sm">
-                  Close in as little as 7–10 days
-                </span>
-              </div>
-
-              <div className="mt-8 max-w-xl rounded-2xl border border-white/15 bg-black/25 p-5 backdrop-blur-md">
+              <div className="mt-8 max-w-xl rounded-2xl border border-white/15 bg-black/15 p-5 backdrop-blur-md">
                 <div className="text-sm uppercase tracking-[0.18em] text-orange-300">
                   Trusted by San Diego homeowners
                 </div>
@@ -204,11 +197,11 @@ export default function FastCashOffersSDPreview() {
                   Get started
                 </div>
                 <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
-                  Get Multiple Cash Offers in 72 hours
+                  Get Multiple Cash Offers in 72 Hours
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
                   Enter the property address and we’ll get to work on your
-                  offers!
+                  offers.
                 </p>
 
                 <form className="mt-6 space-y-4" onSubmit={handleStepOneSubmit}>
@@ -229,9 +222,24 @@ export default function FastCashOffersSDPreview() {
                     type="submit"
                     className="w-full rounded-2xl bg-orange-500 px-5 py-4 text-base font-semibold text-white shadow-lg shadow-orange-950/20 transition hover:bg-orange-400"
                   >
-                    Get My Cash Offers
+                    Get My Cash Offers Now
                   </button>
                 </form>
+
+                <div className="mt-4 flex flex-col gap-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <span className="text-orange-500">✔️</span>
+                    <span>Compare multiple cash offers</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-orange-500">✔️</span>
+                    <span>Sell as-is, no repairs needed</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-orange-500">✔️</span>
+                    <span>No pressure — explore all your options</span>
+                  </div>
+                </div>
 
                 <p className="mt-4 text-xs leading-5 text-slate-500">
                   No obligation. No hidden fees. Just a straightforward
@@ -245,6 +253,15 @@ export default function FastCashOffersSDPreview() {
 
       <section className="bg-slate-950 px-6 py-16 md:px-10">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-10 text-center">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-300">
+              Process
+            </div>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              How It Works
+            </h2>
+          </div>
+
           <div className="grid gap-6 md:grid-cols-3">
             {steps.map((step, index) => (
               <div
@@ -274,8 +291,8 @@ export default function FastCashOffersSDPreview() {
               Simple, direct options without the usual hassle
             </h2>
             <p className="mt-4 max-w-xl leading-8 text-slate-300">
-              This page is designed to help sellers who want clarity, speed, and
-              a straightforward next step.
+              We help San Diego homeowners compare real options — whether that’s
+              a fast cash offer or another path that better fits your goals.
             </p>
           </div>
 
@@ -303,15 +320,16 @@ export default function FastCashOffersSDPreview() {
                 We can help if your property situation feels complicated
               </h2>
               <p className="mt-4 max-w-3xl leading-8 text-slate-300">
-                Whether you need speed, simplicity, or just a real conversation
-                about options, this process is designed to reduce friction.
+                Whether you need speed, simplicity, or just clarity on what your
+                options are, this process is designed to reduce stress and give
+                you real answers.
               </p>
             </div>
             <a
               href="#offer-form"
               className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-6 py-4 font-semibold text-white transition hover:bg-orange-400"
             >
-              Get My Cash Offers
+              Get My Cash Offers Now
             </a>
           </div>
 
@@ -343,7 +361,7 @@ export default function FastCashOffersSDPreview() {
               href="#offer-form"
               className="hidden md:inline-flex items-center justify-center rounded-2xl bg-orange-500 px-5 py-3 font-semibold text-white shadow-lg shadow-orange-950/20 transition hover:bg-orange-400"
             >
-              Get My Cash Offers
+              Get My Cash Offers Now
             </a>
           </div>
 
@@ -413,7 +431,7 @@ export default function FastCashOffersSDPreview() {
               href="#offer-form"
               className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-7 py-4 text-base font-semibold text-white transition hover:bg-orange-400"
             >
-              Get My Cash Offers
+              Get My Cash Offers Now
             </a>
             <a
               href="tel:6197962021"
@@ -518,7 +536,7 @@ export default function FastCashOffersSDPreview() {
             </form>
 
             <p className="mt-4 text-xs leading-5 text-slate-500">
-              No obligation. No hidden fees. Just a straightforward conversation
+              No obligation. No seller fees. Just a straightforward conversation
               about your options.
             </p>
           </div>
