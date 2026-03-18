@@ -107,8 +107,10 @@ export default function FastCashOffersSDPreview() {
 
     setShowStepTwo(true);
   };
-
-  const handleStepTwoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const closeModal = () => {
+    setShowStepTwo(false);
+  };
+  const handleStepTwoSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = {
@@ -119,15 +121,31 @@ export default function FastCashOffersSDPreview() {
       situation,
     };
 
-    console.log("Submitted lead:", formData);
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbxxsV5lwpvAs1DzrSxsDigMQrdqN_oCu_-rfEMSk91fqnf3nyI6BsyVq5syx4E2lBbu/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    alert("Step 2 is working. Next, we’ll connect this to Google Sheets.");
+      alert("Your info has been submitted. We’ll be in touch shortly.");
 
-    setShowStepTwo(false);
-  };
-
-  const closeModal = () => {
-    setShowStepTwo(false);
+      setShowStepTwo(false);
+      setPropertyAddress("");
+      setFullName("");
+      setPhone("");
+      setEmail("");
+      setSituation("Need to sell quickly");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
