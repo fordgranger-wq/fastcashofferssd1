@@ -176,7 +176,7 @@ export default function FastCashOffersSDPreview() {
 
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
                 Real cash offers in 72 hours. If a better option exists, we’ll
-                help you see that too.
+               show you that too.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -184,7 +184,7 @@ export default function FastCashOffersSDPreview() {
                   href="#offer-form"
                   className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-7 py-4 text-base font-semibold text-white shadow-xl shadow-orange-950/30 transition hover:scale-[1.02] hover:bg-orange-400"
                 >
-                  Get My Cash Offers Now
+                  Get My Cash Offers
                 </a>
                 <a
                   href="tel:6197962021"
