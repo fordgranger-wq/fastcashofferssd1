@@ -175,8 +175,8 @@ export default function FastCashOffersSDPreview() {
               </h1>
 
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
-                Real cash offers in 72 hours. If better options exist, we’ll
-               show you that too.
+                Real cash offers in 72 hours. If a better option exists, we’ll
+               show you.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
