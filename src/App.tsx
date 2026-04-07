@@ -134,7 +134,10 @@ export default function FastCashOffersSDPreview() {
         }
       );
 if ((window as any).gtag) {
-  (window as any).gtag('event', 'generate_lead');
+  (window as any).gtag('event', 'generate_lead', {
+  value: 1,
+  currency: 'USD'
+});
 }
       alert("Your info has been submitted. We’ll be in touch shortly.");
 
