@@ -133,8 +133,8 @@ export default function FastCashOffersSDPreview() {
           body: JSON.stringify(formData),
         }
       );
-if (window.gtag) {
-  window.gtag('event', 'generate_lead');
+if ((window as any).gtag) {
+  (window as any).gtag('event', 'generate_lead');
 }
       alert("Your info has been submitted. We’ll be in touch shortly.");
 
