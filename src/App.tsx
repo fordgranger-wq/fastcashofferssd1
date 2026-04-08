@@ -465,7 +465,12 @@ if ((window as any).gtag) {
           </div>
         </div>
       </section>
-
+  <footer className="w-full mt-16 pb-6 px-4 text-center">
+  <p className="text-xs text-gray-400 max-w-3xl mx-auto leading-relaxed">
+  Fast Cash Offers SD is a marketing service that helps homeowners receive offers from local buyers and real estate investors. Submitting your information does not obligate you to sell.
+  John Grange (CA DRE #01897860) is a licensed real estate agent, brokered by eXp Realty of Southern California, Inc. (DRE #02187306). Equal Housing Opportunity. Compensation may be received. Offers not guaranteed.
+  </p>
+</footer>
       {showStepTwo && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
           <div className="relative w-full max-w-lg rounded-[28px] bg-white p-6 text-slate-900 shadow-2xl md:p-8">
